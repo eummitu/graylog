@@ -10,6 +10,7 @@ version: '2'
       image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
       volumes:
         - es_data:/usr/share/elasticsearch/data
+
       environment:
         - http.host=0.0.0.0
         - transport.host=localhost
@@ -34,6 +35,8 @@ version: '2'
       entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
       links:
         - mongodb:mongo
+
+
         - elasticsearch
       restart: always
       depends_on:
@@ -58,3 +61,4 @@ version: '2'
       driver: local
     graylog_data:
       driver: local
+      
