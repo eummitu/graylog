@@ -3,6 +3,7 @@ services:
   # MongoDB: https://hub.docker.com/_/mongo/
   mongo:
     image: mongo:4.2
+    restart: always
     volumes:
       - mongo_data:/data/db
     networks:
@@ -10,6 +11,7 @@ services:
   # Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
+    restart: always
     volumes:
       - es_data:/usr/share/elasticsearch/data
     environment:
@@ -30,6 +32,7 @@ services:
   # Graylog: https://hub.docker.com/r/graylog/graylog/
   graylog:
     image: graylog/graylog:4.2
+    restart: always
     volumes:
       - graylog_data:/usr/share/graylog/data
     environment:
